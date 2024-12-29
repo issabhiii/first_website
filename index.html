@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Portfolio Website</title>
+    <style>
+        
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+      
+        header, section {
+            position: relative;
+            z-index: 1; 
+        }
+    </style>
+</head>
+<body>
+    
+    <video class="video-bg" autoplay muted loop>
+        <source src="gif.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header>
+        <a href="#" class="logo">Abhi</a>
+        <nav>
+            <a href="#" class="active"> Home</a>
+            <a href="#">Services</a>
+            <a href="#">Skills</a>
+            <a href="#">Education</a>
+            <a href="#">Experience</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="home">
+        <div class="home-img">
+            <img src="Screenshot_29-12-2024_204445_www.linkedin.com.jpeg"
+            onmouseover="this.src='Screenshot 2024-12-29 204315.jpg';"
+            onmouseout="this.src='DSC00969.JPG';">
+        </div>
+        <div class="home-content">
+            <h1>
+                <span class="name-wrapper" 
+                      onmouseover="this.querySelector('.name').innerText='Call me Abhi :)'" 
+                      onmouseout="this.querySelector('.name').innerText='Hi, I\'m Abhinav Jain'">
+                  <span class="name">Hi, I'm Abhinav Jain</span>
+                </span>
+            </h1>
+
+            <h3 class="typing-text">I'm a <span></span></h3>
+            <p>Passionate Computer Science learner with a flair for innovative coding and crafting technology-driven solutions. Seeking a leading institutional platform to apply and enhance my skills & competencies in software development, and artificial intelligence and contribute through cutting-edge research that shall transform people’s lives with technological advancement.</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/abhinav-jain-9881b8296/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/issabhiii"><i class="fa-brands fa-github" target="_blank"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" onclick="copyEmail()"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <script>
+                function copyEmail() {
+                    const email = "abhinav.jain.9359@gmail.com"; 
+                    navigator.clipboard.writeText(email).then(() => {
+                        alert("Email copied to clipboard!");
+                    });
+                }
+            </script>
+            <a href="#" class="btn">Hire me</a>
+        </div>
+    </section>
+</body>
+</html>
