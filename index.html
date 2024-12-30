@@ -26,12 +26,12 @@
     </style>
 </head>
 <body>
-    
+    <button id="toggle-dark-mode" class="darkmodebutton">Toggle Light Mode</button>
+    <script src="script.js"></script>
     <video class="video-bg" autoplay muted loop>
         <source src="gif.mp4" type="video/mp4">
-        Your browser does not support the video tag.
     </video>
-
+    
     <header>
         <a href="#" class="logo">Abhi</a>
         <nav>
@@ -53,14 +53,14 @@
         <div class="home-content">
             <h1>
                 <span class="name-wrapper" 
-                      onmouseover="this.querySelector('.name').innerText='Call me Abhi :)'" 
+                      onmouseover="this.querySelector('.name').innerText='Call me Abhi :)       '" 
                       onmouseout="this.querySelector('.name').innerText='Hi, I\'m Abhinav Jain'">
                   <span class="name">Hi, I'm Abhinav Jain</span>
                 </span>
             </h1>
 
-            <h3 class="typing-text">I'm a <span></span></h3>
-            <p>Passionate Computer Science learner with a flair for innovative coding and crafting technology-driven solutions. Seeking a leading institutional platform to apply and enhance my skills & competencies in software development, and artificial intelligence and contribute through cutting-edge research that shall transform people’s lives with technological advancement.</p>
+            <h3 id="text" class="typing-text">I'm a <span></span></h3>
+            <p id="text">Passionate Computer Science learner with a flair for innovative coding and crafting technology-driven solutions. Seeking a leading institutional platform to apply and enhance my skills & competencies in software development, and artificial intelligence and contribute through cutting-edge research that shall transform people’s lives with technological advancement.</p>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/abhinav-jain-9881b8296/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="https://github.com/issabhiii"><i class="fa-brands fa-github" target="_blank"></i></a>
