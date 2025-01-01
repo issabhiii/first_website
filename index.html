@@ -56,19 +56,40 @@
 
         /* Dark Mode Button Styling */
         .darkmodebutton {
-            background-color: black;
+            background-color: transparent;
             color: white;
-            border: 2px solid white;
-            padding: 10px 20px;
-            margin: 20px;
+            border: none;
+            padding: 10px;
             cursor: pointer;
+            font-size: 2rem;
             transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+
+        .darkmodebutton i {
+            font-size: 2rem;
         }
 
         .darkmodebutton:hover {
             background-color: aliceblue;
             color: black;
         }
+
+        /* Dark Mode Button Moon Styling */
+        body.dark-mode .darkmodebutton i {
+            color: #00ff1e; 
+        }
+
+        body.dark-mode .darkmodebutton:hover {
+            background-color: #222; 
+        }
+
+
     </style>
 </head>
 <body>
@@ -87,7 +108,9 @@
             <a href="#">Experience</a>
             <a href="#">Contact</a>
         </nav>
-        <button id="toggle-dark-mode" class="darkmodebutton">Toggle Light Mode</button>
+        <button id="toggle-dark-mode" class="darkmodebutton">
+            <i class="fa-solid fa-moon"></i>
+        </button>
     </header>
 
     <section class="home">
@@ -105,7 +128,7 @@
                 </span>
             </h1>
 
-            <h3 id="text" class="typing-text">I'm a <span></span></h3>
+            <h3 class="typing-text">I'm a <span></span></h3>
             <p id="text">Passionate Computer Science learner with a flair for innovative coding and crafting technology-driven solutions. Seeking a leading institutional platform to apply and enhance my skills & competencies in software development, and artificial intelligence and contribute through cutting-edge research that shall transform people’s lives with technological advancement.</p>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/abhinav-jain-9881b8296/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
