@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <title>Portfolio Website</title>
     <style>
-        
+        /* Background Video Styling */
         .video-bg {
             position: fixed;
             top: 0;
@@ -18,30 +18,76 @@
             z-index: -1;
         }
 
-      
+        /* Header and Section Overlap Fix */
         header, section {
             position: relative;
             z-index: 1; 
         }
+
+        /* Dark Mode Styling */
+        body.dark-mode {
+            background-color: black;
+            color: white;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode header a.logo {
+            color: #00ff1e;
+        }
+
+        body.dark-mode nav a {
+            color: #00ff1e;
+        }
+
+        body.dark-mode nav a.active {
+            border-bottom-color: #00ff1e;
+        }
+
+        body.dark-mode .btn {
+            background-color: white;
+            color: black;
+            border-color: #00ff1e;
+        }
+
+        body.dark-mode .social-icons a {
+            background-color: #00ff1e;
+            color: black;
+        }
+
+        /* Dark Mode Button Styling */
+        .darkmodebutton {
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+            padding: 10px 20px;
+            margin: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .darkmodebutton:hover {
+            background-color: aliceblue;
+            color: black;
+        }
     </style>
 </head>
 <body>
-    <button id="toggle-dark-mode" class="darkmodebutton">Toggle Light Mode</button>
     <script src="script.js"></script>
     <video class="video-bg" autoplay muted loop>
         <source src="gif.mp4" type="video/mp4">
     </video>
-    
+
     <header>
         <a href="#" class="logo">Abhi</a>
         <nav>
-            <a href="#" class="active"> Home</a>
+            <a href="#" class="active">Home</a>
             <a href="#">Services</a>
             <a href="#">Skills</a>
             <a href="#">Education</a>
             <a href="#">Experience</a>
             <a href="#">Contact</a>
         </nav>
+        <button id="toggle-dark-mode" class="darkmodebutton">Toggle Light Mode</button>
     </header>
 
     <section class="home">
@@ -53,7 +99,7 @@
         <div class="home-content">
             <h1>
                 <span class="name-wrapper" 
-                      onmouseover="this.querySelector('.name').innerText='Call me Abhi :)       '" 
+                      onmouseover="this.querySelector('.name').innerText='Call me Abhi :)'" 
                       onmouseout="this.querySelector('.name').innerText='Hi, I\'m Abhinav Jain'">
                   <span class="name">Hi, I'm Abhinav Jain</span>
                 </span>
@@ -63,7 +109,7 @@
             <p id="text">Passionate Computer Science learner with a flair for innovative coding and crafting technology-driven solutions. Seeking a leading institutional platform to apply and enhance my skills & competencies in software development, and artificial intelligence and contribute through cutting-edge research that shall transform people’s lives with technological advancement.</p>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/abhinav-jain-9881b8296/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/issabhiii"><i class="fa-brands fa-github" target="_blank"></i></a>
+                <a href="https://github.com/issabhiii" target="_blank"><i class="fa-brands fa-github"></i></a>
                 <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
                 <a href="#" onclick="copyEmail()"><i class="fa-solid fa-envelope"></i></a>
             </div>
@@ -78,5 +124,25 @@
             <a href="#" class="btn">Hire me</a>
         </div>
     </section>
+
+    <script>
+        document.getElementById("toggle-dark-mode").addEventListener("click", function () {
+            const body = document.body;
+            const video = document.querySelector(".video-bg source");
+
+            // Toggle the dark mode class
+            body.classList.toggle("dark-mode");
+
+            // Update the video source based on the current mode
+            if (body.classList.contains("dark-mode")) {
+                video.src = "target.mp4";
+            } else {
+                video.src = "gif.mp4";
+            }
+
+            // Reload the video to apply the new source
+            video.parentElement.load();
+        });
+    </script>
 </body>
 </html>

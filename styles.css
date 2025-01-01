@@ -247,3 +247,24 @@ body {
     color: white; /* Initial color */
     font-weight: bold;
 }
+body.dark-mode {
+    background-color: rgba(0, 0, 0, 0); /* Dark mode background */
+    color: white; /* Default text color in dark mode */
+}
+
+body.dark-mode header,
+body.dark-mode nav a {
+    background-color: rgba(0, 0, 0, 0);
+    color: #00ff1e; /* Green text in dark mode */
+}
+
+body.dark-mode .btn {
+    background-color: rgba(255, 255, 255, 0);
+    color: rgba(0, 0, 0, 0);
+    border-color: #00ff1e;
+}
+
+body.dark-mode .social-icons a {
+    background-color: #00ff1e00;
+    color: black;
+}
