@@ -133,6 +133,7 @@ span {
 
 .home-img {
     border-radius: 50%;
+    animation: 2s linear;
 }
 .edu-img {
     border-radius: 25%;
@@ -163,6 +164,12 @@ span {
     box-shadow: 0 0 25px solid #0dff19;
     cursor: pointer;
     transition: 0.2s linear;
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    transition: opacity 0.3s ease;
+   
 }
 
 .home-img img:hover {
