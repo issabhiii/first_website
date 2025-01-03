@@ -134,6 +134,18 @@ span {
 .home-img {
     border-radius: 50%;
 }
+.edu-img {
+    border-radius: 25%;
+    display: flex;
+    flex-direction:row;
+    gap: 10px;
+}
+
+.eduim {
+    display: flex;
+    flex-direction:column;
+    gap: 20px;
+}
 
 .home-img img {
     position: relative;
@@ -144,9 +156,47 @@ span {
     transition: 0.2s linear;
 }
 
+.edu-img img {
+    position: relative;
+    width: 16vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px solid #0dff19;
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
 .home-img img:hover {
     font-size: 1.8rem;
     font-weight: 500;
+}
+.edu-img img:hover {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.edutxt {
+    font-size: 1rem;
+    line-height: 1.5;
+    color:#00ff1e;
+    font-weight:500;
+    font-size: 2rem;
+}
+
+.edutxt h2{
+    color:#ffffff;
+    font-size:2.7rem;
+    text-decoration: underline;
+
+}
+.edu-content {
+    padding:30px;
+    font-size:1.5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.gr10, .gr12 ,.bpscnt {
+    margin-right: 40px; 
 }
 
 .social-icons a {
@@ -271,7 +321,13 @@ span {
         width: 70vw;
         margin-top: 4rem;
     }
+    .edu-img img{
+        width: 35vw;
+        margin-top: 9rem;
+    }
 }
+
+
 
 /* Dark mode button styles */
 .darkmodebutton {
@@ -309,4 +365,9 @@ body.dark-mode .btn {
 body.dark-mode .social-icons a {
     background-color: #00ff1e00;
     color: black;
+}
+
+
+html {
+    scroll-behavior: smooth;
 }

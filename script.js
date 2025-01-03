@@ -21,3 +21,60 @@ document.getElementById('toggle-dark-mode').addEventListener('click', function (
     // Reload the video to apply the new source
     video.parentElement.load();
 });
+document.addEventListener("DOMContentLoaded", function() {
+    const span = document.querySelector(".typing-text span");
+    const phrases = ["Web Developer", "Designer", "Problem Solver"];
+    let index = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+        const currentPhrase = phrases[index];
+        if (isDeleting) {
+            span.textContent = currentPhrase.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            span.textContent = currentPhrase.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, 1000);
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            index = (index + 1) % phrases.length;
+            setTimeout(typeEffect, 500);
+        } else {
+            setTimeout(typeEffect, isDeleting ? 100 : 200);
+        }
+    }
+
+    typeEffect();
+
+    const darkModeButton = document.getElementById('toggle-dark-mode');
+    darkModeButton.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+    });
+
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            const top = section.getBoundingClientRect().top;
+            if (top >= 0 && top <= window.innerHeight / 2) {
+                const links = document.querySelectorAll('nav a');
+                links.forEach(link => link.classList.remove('active'));
+                document.querySelector(`nav a[href='#${section.id}']`).classList.add('active');
+            }
+        });
+    });
+
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+});
