@@ -405,37 +405,43 @@ html {
     animation-timing-function: ease-out;
     animation-delay: 0.5s; 
   }
-/* FLIP CARD FUNCTIONALITY */
-  .maincontainer{
-    position: absolute;
-    width: 250px;
-    height: 320px;
-    background: none;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  
-  }
-  
-  /* THE CARD HOLDS THE FRONT AND BACK FACES */
-  .thecard{
+/* Parent container */
+.parent-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0);
+    perspective: 1000px; /* Add perspective for 3D effect */
+}
+
+/* Individual card containers */
+.main-container {
+    width: 45%;
+    aspect-ratio: 3 / 4; /* Maintain aspect ratio */
     position: relative;
-    top: 0;
-    left: 0;
+}
+
+/* The card (holds front and back faces) */
+.the-card {
+    position: relative;
     width: 100%;
     height: 100%;
     border-radius: 10px;
     transform-style: preserve-3d;
-    transition: all 0.8s ease;
-  }
-  
-  /* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
-  .thecard:hover{
+    transition: transform 0.8s ease;
+}
+
+/* Card hover flip effect */
+.the-card:hover {
     transform: rotateY(180deg);
-  }
-  
-  /* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
-   .thefront{
+}
+
+/* Front and back faces of the card */
+.the-frontBPS, .the-backBPS,.the-frontUMN, .the-backUMN {
     position: absolute;
     top: 0;
     left: 0;
@@ -444,40 +450,56 @@ html {
     border-radius: 10px;
     backface-visibility: hidden;
     overflow: hidden;
-    background: #ffc728;
+}
+
+/* Styling for the front face */
+.the-frontBPS, .the-frontUMN {
     color: #000;
-  }
-  
-  /* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
-  .theback{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    backface-visibility: hidden;
-    overflow: hidden;
-    background: #fafafa;
-    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.the-frontBPS,.the-backBPS{
+    background-image: linear-gradient(to bottom right, rgb(59, 118, 255), rgb(255, 83, 83));
+}
+.the-backUMN,.the-frontUMN{
+    background-image: linear-gradient(to bottom right, rgb(255, 202, 9), rgb(154, 0, 0));
+}
+/* Styling for the back face */
+.the-backUMN, .the-backBPS {
+
+    color: #000000;
     text-align: center;
     transform: rotateY(180deg);
-  }
-  
-  
-  /*This block (starts here) is merely styling for the flip card, and is NOT an essential part of the flip code */
-  .thefront h1, .theback h1{
-    font-family: 'zilla slab', sans-serif;
-    padding: 30px;
-    font-weight: bold;
-    font-size: 24px;
-    text-align: center;
-  }
-  
-  .thefront p, .theback p{
-    font-family: 'zilla slab', sans-serif;
-    padding: 30px;
-    font-weight: normal;
-    font-size: 12px;
-    text-align: center;
-  }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Card image styling */
+.card-img {
+    margin: 20px;
+    border-radius: 50%;
+    max-width: 50%; /* Limit the maximum width of the image */
+    max-height: 50%; /* Limit the maximum height of the image */
+}
+
+/* Grades section */
+.grades {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.crd-gr10, .crd-gr12 {
+    font-size: 150%;
+    font-weight: 300;
+    padding: 10%;
+    text-align: left;
+}
+
