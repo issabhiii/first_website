@@ -22,35 +22,6 @@ document.getElementById('toggle-dark-mode').addEventListener('click', function (
     video.parentElement.load();
 });
 document.addEventListener("DOMContentLoaded", function() {
-    const span = document.querySelector(".typing-text span");
-    const phrases = ["Web Developer", "Designer", "Problem Solver"];
-    let index = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeEffect() {
-        const currentPhrase = phrases[index];
-        if (isDeleting) {
-            span.textContent = currentPhrase.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            span.textContent = currentPhrase.substring(0, charIndex + 1);
-            charIndex++;
-        }
-
-        if (!isDeleting && charIndex === currentPhrase.length) {
-            isDeleting = true;
-            setTimeout(typeEffect, 1000);
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            index = (index + 1) % phrases.length;
-            setTimeout(typeEffect, 500);
-        } else {
-            setTimeout(typeEffect, isDeleting ? 100 : 200);
-        }
-    }
-
-    typeEffect();
 
     const darkModeButton = document.getElementById('toggle-dark-mode');
     darkModeButton.addEventListener('click', function() {

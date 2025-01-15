@@ -133,6 +133,22 @@ span {
     border-radius: 50%;
     animation: 2s linear;
 }
+
+.home-img img {
+    position: relative;
+    width: 32vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px solid #0dff19;
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+
+.home-img img:hover {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
 .edu-img {
     border-radius: 25%;
     display: flex;
@@ -146,14 +162,6 @@ span {
     gap: 20px;
 }
 
-.home-img img {
-    position: relative;
-    width: 32vw;
-    border-radius: 50%;
-    box-shadow: 0 0 25px solid #0dff19;
-    cursor: pointer;
-    transition: 0.2s linear;
-}
 
 .edu-img img {
     position: relative;
@@ -169,40 +177,41 @@ span {
     transition: opacity 0.3s ease;
    
 }
-
-.home-img img:hover {
-    font-size: 1.8rem;
-    font-weight: 500;
-}
 .edu-img img:hover {
     font-size: 0.8rem;
     font-weight: 500;
 }
 
 .edutxt {
-    font-size: 1rem;
+
     line-height: 1.5;
     color:#00ff1e;
     font-weight:500;
-    font-size: 2rem;
+    font-size: 150%;
 }
 
 .edutxt h2{
     color:#ffffff;
-    font-size:2.7rem;
+    font-size: 200%;
     text-decoration: underline;
 
 }
 .edu-content {
     padding:30px;
-    font-size:1.5rem;
+    font: size 150%;;
     display: flex;
     flex-direction: row;
 }
 
-.gr10, .gr12 ,.bpscnt {
-    margin-right: 40px; 
+@media (max-width: 600px) {
+    .edu-content,.edutxt,.eduim {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
 }
+
+
 
 .social-icons a {
     display: inline-flex;
@@ -395,4 +404,80 @@ html {
     animation-duration: 3s;
     animation-timing-function: ease-out;
     animation-delay: 0.5s; 
+  }
+/* FLIP CARD FUNCTIONALITY */
+  .maincontainer{
+    position: absolute;
+    width: 250px;
+    height: 320px;
+    background: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+  }
+  
+  /* THE CARD HOLDS THE FRONT AND BACK FACES */
+  .thecard{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: all 0.8s ease;
+  }
+  
+  /* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
+  .thecard:hover{
+    transform: rotateY(180deg);
+  }
+  
+  /* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
+   .thefront{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #ffc728;
+    color: #000;
+  }
+  
+  /* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
+  .theback{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #fafafa;
+    color: #333;
+    text-align: center;
+    transform: rotateY(180deg);
+  }
+  
+  
+  /*This block (starts here) is merely styling for the flip card, and is NOT an essential part of the flip code */
+  .thefront h1, .theback h1{
+    font-family: 'zilla slab', sans-serif;
+    padding: 30px;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .thefront p, .theback p{
+    font-family: 'zilla slab', sans-serif;
+    padding: 30px;
+    font-weight: normal;
+    font-size: 12px;
+    text-align: center;
   }
