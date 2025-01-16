@@ -60,3 +60,67 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+const projectsHeader = document.getElementById('projects-header');
+
+window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+    const initialFontSize = 39; // Match this with your CSS (10rem)
+    const minFontSize = 4; // Minimum font size in rem
+    const shrinkStart = 700; // Start shrinking after 10px scroll
+    const stickyLimit = 300; // Stop being sticky after 50px
+
+    if (scrollPosition > shrinkStart) {
+        const newFontSize = Math.max(
+            minFontSize,
+            initialFontSize - (scrollPosition - shrinkStart) / 50 // Faster shrink
+        );
+        projectsHeader.style.fontSize = `${newFontSize}rem`;
+    } else {
+        projectsHeader.style.fontSize = `${initialFontSize}rem`;
+    }
+
+    // Handle the sticky behavior
+    if (scrollPosition > stickyLimit) {
+        projectsHeader.style.position = 'relative'; // Stop sticking
+    } else {
+        projectsHeader.style.position = 'sticky'; // Stick to the top
+    }
+});
+
+// Helper function to detect mobile devices
+function isMobile() {
+    return window.innerWidth <= 768; // Define mobile as width <= 768px
+}
+
+// Scroll event listener
+
+window.addEventListener('scroll', () => {
+  const scrollPosition = window.scrollY;
+
+  // Set initial and minimum font sizes based on device (optional)
+  const initialFontSize = isMobile() ? 10 : 39;
+  const minFontSize = isMobile() ? 5 : 4;
+
+  // Adjust these values to control shrink behavior:
+  const shrinkStart = 50; // Much later shrink start (adjust as needed)
+  const stickyLimit = isMobile() ? 50 : 300; // Sticky duration
+
+  // Handle font shrinking
+  if (scrollPosition > shrinkStart) {
+    const newFontSize = Math.max(
+      minFontSize,
+      initialFontSize - (scrollPosition - shrinkStart) / (isMobile() ? 70 : 50)
+    );
+    projectsHeader.style.fontSize = `${newFontSize}rem`;
+  } else {
+    projectsHeader.style.fontSize = `${initialFontSize}rem`;
+  }
+
+  // Handle sticky behavior (optional, based on your previous code)
+  if (scrollPosition > stickyLimit) {
+    projectsHeader.style.position = 'relative'; // Stop sticking
+  } else {
+    projectsHeader.style.position = 'sticky'; // Keep sticky
+  }
+});

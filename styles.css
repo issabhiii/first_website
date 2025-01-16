@@ -352,8 +352,20 @@ html {
     perspective: 1000px; /* Add perspective for 3D effect */
 }
 
+.parent-container2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 70vh;
+    padding: 10px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0);
+    perspective: 1000px; /* Add perspective for 3D effect */
+}
+
 /* Individual card containers */
-.main-container {
+.main-container,.main-container3 {
     width: 45%;
     aspect-ratio: 3 / 4; /* Maintain aspect ratio */
     position: relative;
@@ -375,7 +387,7 @@ html {
 }
 
 /* Front and back faces of the card */
-.the-frontBPS, .the-backBPS,.the-frontUMN, .the-backUMN {
+.the-frontBPS, .the-backBPS,.the-frontUMN, .the-backUMN, .the-frontPRJ, .the-backPRJ {
     position: absolute;
     top: 0;
     left: 0;
@@ -387,7 +399,7 @@ html {
 }
 
 /* Styling for the front face */
-.the-frontBPS, .the-frontUMN {
+.the-frontBPS, .the-frontUMN, .the-frontPRJ {
     color: #000;
     display: flex;
     flex-direction: column;
@@ -401,8 +413,11 @@ html {
 .the-backUMN,.the-frontUMN{
     background-image: linear-gradient(to bottom right, rgb(255, 202, 9), rgb(154, 0, 0));
 }
+.the-backPRJ,.the-frontPRJ{
+    background-image: linear-gradient(to bottom right, rgb(195, 0, 255), rgb(0, 0, 255));
+}
 /* Styling for the back face */
-.the-backUMN, .the-backBPS {
+.the-backUMN, .the-backBPS, .the-backPRJ {
 
     color: #000000;
     text-align: center;
@@ -421,6 +436,61 @@ html {
     max-width: 50%; /* Limit the maximum width of the image */
     max-height: 50%; /* Limit the maximum height of the image */
 }
+.cardcatimg{
+    margin: 20px;
+    max-width: 69%; /* Limit the maximum width of the image */
+    max-height: 69%; /* Limit the maximum height of the image */
+}
+@media (max-width: 1000px) {
+    .crdcatimg{
+        margin: 200px;
+        width: 400px; /* Limit the maximum width of the image */
+        height: 400px; /* Limit the maximum height of the image */
+    }
+}
+
+
+.crdh1{
+    font-size: 400%;
+    font-weight: 500;
+    color:white;
+    }
+.crd-lst {
+    font-size: 250%;
+    font-weight: 300;
+    padding: 10%;
+    text-align: center;
+    color:white;
+
+}
+.Projects {
+    min-height: 200vh; /* Crucial for sticky to work */
+    background-color: #33333300; /* Or your desired background */
+    padding-top: 10px;
+}
+
+.pjs {
+    font-size: 10rem;
+    font-weight: 600;
+    padding: 2rem;
+    text-align: center;
+    color: white;
+    transition: font-size 0.1s ease; /* Smooth resizing */
+    position: sticky; /* Sticky within the scroll area */
+    top: 0; /* Stick to the top for a limited scroll */
+    z-index: 100;
+    background-color: #33333300;
+}
+
+
+@media (max-width: 768px) { /* Target mobile screens */
+    .pjs {
+        font-size: 5rem; /* Smaller font for mobile */
+        padding: 1rem;
+        position: relative; /* Disable sticky behavior for mobile if needed */
+    }
+}
+
 
 /* Grades section */
 .grades {
@@ -441,9 +511,9 @@ html {
     .parent-container {
         flex-direction: column;
         width: 100%;
-        height: 220vh;
+        height: 169vh;
     }
-    .main-container,.main-container2 {
+    .main-container,.main-container2,.main-container3 {
         width: 95%;
         aspect-ratio: 3 / 4; /* Maintain aspect ratio */
         position: relative;
@@ -452,3 +522,188 @@ html {
 }
 
     
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #ffff00;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    height: 400px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+}
+
+.card {
+    width: 80px;
+    border-radius: .75rem;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 2rem;
+    margin: 0 10px;
+    display: flex;
+
+    transition: .6s cubic-bezier(.28,-0.03,0,.99);
+    box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
+}
+
+.card > .row {
+    color: rgb(255, 0, 0);
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.card > .row > .icon {
+    background: #223;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+.description {
+    display: flex;                /* Use flexbox for centering */
+    justify-content: center;      /* Center horizontally */
+    align-items: center;          /* Center vertically */
+    flex-direction: column;       /* Stack text vertically */
+    width: 80%;                 /* Set width of the card description */
+    opacity: 0;
+    transform: translateY(30px);
+    transition-delay: .3s;
+    transition: all .3s ease;
+    text-align: center;           /* Center the text horizontally */
+    flex: 1;                      /* Allow description to grow and fill space */
+    padding: 0;                   /* Remove any internal padding */
+}
+
+
+.card > .row > .description {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 80%;
+    width: 90%;
+    opacity: 0;
+    transform: translateY(30px);
+    transition-delay: .3s;
+    transition: all .3s ease;
+}
+
+.description p {
+    color: #ffffff;
+    padding-top: 5px;
+    font-size: 150%;
+    line-height: 1.4;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.991); /* Added opacity */
+    font-weight: 200;
+}
+@media (max-width: 1000px) {
+    .description p {
+        color: #ffffff;
+        padding-top: 5px;
+        font-size: 118%;
+        line-height: 1.4;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.991); /* Added opacity */
+        font-weight: 200;
+    }
+}
+
+.description h1 {
+    text-transform: uppercase;
+    font-size: 2.5em;
+}
+.description h3 {
+    text-transform: uppercase;
+    font-size: 1.75em;
+    color:#74ff84;
+}
+
+input {
+    display: none;
+}
+
+input:checked + label {
+    width: 600px;
+}
+
+input:checked + label .description {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.card[for="c1"] {
+    background-image: url('./img1.jpg');
+}
+.card[for="c2"] {
+    background-image: url('./img2.jpg');
+}
+.card[for="c3"] {
+    background-image: url('./img3.jpeg');
+}
+.card[for="c4"] {
+    background-image: url('./img4.png');
+}
+.card[for="c5"] {
+    background-image: url('./img5.jpg');
+}
+
+@media screen and (max-width: 768px) {
+    /* Adjust the wrapper and container for mobile view */
+    .wrapper {
+        height: auto; /* Allow dynamic height */
+        padding: 20px; /* Add some spacing for smaller screens */
+    }
+
+    .container {
+        flex-direction: column; /* Stack the cards vertically */
+        align-items: center; /* Center-align cards */
+        justify-content: flex-start; /* Align cards from the top */
+        gap: 20px; /* Add space between cards */
+        height: auto; /* Allow dynamic height */
+    }
+
+    /* Adjust card dimensions for mobile */
+    .card {
+        width: 90%; /* Take most of the screen width */
+        height: 150px; /* Adjust card height */
+        margin: 10px 0; /* Add vertical spacing */
+        flex-direction: row; /* Ensure contents align horizontally */
+        align-items: center;
+    }
+
+    /* Adjust description visibility for vertical cards */
+    .description {
+        height: auto; /* Let the height adjust dynamically */
+        width: 100%; /* Full width for text */
+        text-align: center; /* Center-align the text */
+    }
+
+    /* Adjust sliding effect for vertical alignment */
+    input:checked + label {
+        width: 100%; /* Ensure full width for vertical cards */
+        height: 200px; /* Expand height for active cards */
+    }
+}
+.highlight {
+    color:#f4fff4;
+    background-color: rgba(0, 0, 0, 0.683);
+}
